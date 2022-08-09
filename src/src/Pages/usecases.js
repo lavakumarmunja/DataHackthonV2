@@ -74,7 +74,7 @@ function UseCases() {
         <a href="/usecaseregistration" class="btn btn-secondary" role="button">Register UseCases</a>
           </div>
         <div className="col-6">
-        Post ID: <input  onChange={e => setPostId(e.target.value)}></input>
+        Search: <input  onChange={e => setPostId(e.target.value)}></input>
         
         </div>
         

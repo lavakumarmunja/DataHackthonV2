@@ -74,14 +74,14 @@ function PaginationEx() {
         <a href="/registration" class="btn btn-secondary" role="button">Register Project</a>
           </div>
         <div className="col-6">
-        Post ID: <input  onChange={e => setPostId(e.target.value)}></input>
+        Search: <input  onChange={e => setPostId(e.target.value)}></input>
         
         </div>
         </div>
             <Table striped bordered hover>
             <thead>
                 <tr>
-                    <th>Post id </th>
+                    <th>No </th>
                     <th>Name</th>                    
                     <th>Application ID</th>
                     <th>Application GIT URL</th>
