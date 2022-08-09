@@ -10,6 +10,7 @@ import Scenarios from './Pages/scenarios';
 import PaginationEx from './Pages/pagination';
 import Navigation from './Pages/navigation';
 import UseCases from './Pages/usecases';
+import UseCasesRegistration from './Pages/usecaseregistration';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -18,7 +19,8 @@ root.render(
       <Routes>
         <Route exact path="/" element={<PaginationEx/>} />
         <Route path="/registration" element={<Registration/>} />
-        <Route path="/useCases" element={<UseCases/>} />        
+        <Route path="/useCases" element={<UseCases/>} />       
+        <Route path="/usecaseregistration" element={<UseCasesRegistration/>} />  
       </Routes>
     </Router>
     

@@ -71,7 +71,7 @@ function UseCases() {
       <div className="row m-2">
         <div className="row row-cols-3 pt-3">
         <div className="col-6">
-        <a href="/registration" class="btn btn-secondary" role="button">Register UseCases</a>
+        <a href="/usecaseregistration" class="btn btn-secondary" role="button">Register UseCases</a>
           </div>
         <div className="col-6">
         Post ID: <input  onChange={e => setPostId(e.target.value)}></input>

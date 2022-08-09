@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
-
+import axios from "axios";
 import { useState } from "react";
 
 
@@ -27,7 +27,9 @@ function Registration() {
     setLob(event.target.value);
   };
 
-  
+  const giURLHandler = (event) => {
+    setGitURL(event.target.value);
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -36,35 +38,49 @@ function Registration() {
         setId('');
         setName('');
         setLob('');
-        
+        setGitURL('');
        const input = JSON.stringify({applicationName:appName,applicationId:appId,
-        applicationLob:lob
+        applicationLob:lob,
+        applicationURL:gitURL
       });
 console.log(input);
-    return alert('Entered Values are: '+ input )
+
+    axios.post('http://localhost:3000/projects', input)
+    .then(response => {
+        console.log(response)
+    })
+   
+    window.location="/";
+
+
+    return alert( 'Project registered Successfully !' );
 
 
   };
 
     return (
         <div className=' container center_div'>
+          <h1>Project Registration</h1>
         <Form onSubmit={submitHandler}>
       <Form.Group className="mb-3" controlId='name'>
-        <Form.Label>Project name</Form.Label>
-        <Form.Control type="text" placeholder=" Project name" value={appName} onChange={appNameHandler}/>
+        <Form.Label>Name</Form.Label>
+        <Form.Control type="text" placeholder="Enter Project name" value={appName} onChange={appNameHandler}/>
          </Form.Group>
 
       <Form.Group className="mb-3" controlId='appID'>
-        <Form.Label>Use cae</Form.Label>
-        <Form.Control type="text" placeholder="USe case" value={appId} onChange={techTypeHandler}/>
+        <Form.Label>APP ID</Form.Label>
+        <Form.Control type="text" placeholder="APp ID" value={appId} onChange={techTypeHandler}/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId='lob'>
-        <Form.Label>Description</Form.Label>
-        <Form.Control type="text" placeholder="Description" value={lob} onChange={lobHandler}/>
+        <Form.Label>LOB</Form.Label>
+        <Form.Control type="text" placeholder="Enter LOB" value={lob} onChange={lobHandler}/>
       </Form.Group>
 
-
+      <Form.Group className="mb-3" controlId='githubUrl'>
+        <Form.Label>Github URL</Form.Label>
+        <Form.Control type="text" placeholder="GitHub URL" value={gitURL} onChange={giURLHandler}/>
+      </Form.Group>
 
       <Button variant="primary" type="submit" className='cen'>
         Submit
